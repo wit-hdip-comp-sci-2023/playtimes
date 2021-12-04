@@ -1,4 +1,3 @@
-import Inert from "@hapi/inert";
 import Vision from "@hapi/vision";
 import Hapi from "@hapi/hapi";
 import Cookie from "@hapi/cookie";
@@ -10,7 +9,6 @@ import Handlebars from "handlebars";
 import { webRoutes } from "./web-routes.js";
 import { db } from "./models/db.js";
 import { accountsController } from "./controllers/accounts-controller.js";
-import * as packageSpec from "../package.json";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -27,7 +25,6 @@ async function init() {
     host: "localhost",
   });
 
-  await server.register(Inert);
   await server.register(Vision);
   await server.register(Cookie);
   server.validator(Joi);

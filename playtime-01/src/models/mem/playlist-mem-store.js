@@ -14,12 +14,7 @@ export const playlistMemStore = {
   },
 
   async getPlaylistById(id) {
-    const list = playlists.find((playlist) => playlist._id === id);
-    return list;
-  },
-
-  async getUserPlaylists(userid) {
-    return playlists.filter((playlist) => playlist.userid === userid);
+    return playlists.find((playlist) => playlist._id === id);
   },
 
   async deletePlaylistById(id) {

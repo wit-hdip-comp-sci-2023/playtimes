@@ -1,4 +1,3 @@
-import Inert from "@hapi/inert";
 import Vision from "@hapi/vision";
 import Hapi from "@hapi/hapi";
 import path from "path";
@@ -16,7 +15,6 @@ async function init() {
     host: "localhost",
   });
 
-  await server.register(Inert);
   await server.register(Vision);
 
   server.views({

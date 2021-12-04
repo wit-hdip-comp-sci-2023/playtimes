@@ -16,13 +16,6 @@ export const trackController = {
   },
 
   update: {
-    validate: {
-      payload: TrackSpec,
-      options: { abortEarly: false },
-      failAction: function (request, h, error) {
-        return h.view("track-view", { title: "Edit track error", errors: error.details }).takeover().code(400);
-      },
-    },
     handler: async function (request, h) {
       const track = await db.trackStore.getTrackById(request.params.trackid);
       const newTrack = {
