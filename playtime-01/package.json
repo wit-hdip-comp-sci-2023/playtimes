@@ -1,0 +1,27 @@
+{
+  "name": "playtime",
+  "version": "0.1.0",
+  "description": "A Playlist application for the HDip in Computing, WIT",
+  "main": "src/server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "./node_modules/.bin/nodemon src/server.js",
+    "lint": "./node_modules/.bin/eslint . --ext .js"
+  },
+  "dependencies": {
+    "@hapi/boom": "^9.1.4",
+    "@hapi/hapi": "^20.2.1",
+    "@hapi/inert": "^6.0.4",
+    "@hapi/vision": "^6.1.0",
+    "handlebars": "^4.7.7",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.25.3",
+    "nodemon": "^2.0.15",
+    "prettier": "^2.5.0"
+  }
+}
