@@ -13,9 +13,7 @@
     "@hapi/vision": "^6.1.0",
     "@hapi/cookie": "^11.0.2",
     "handlebars": "^4.7.7",
-    "uuid": "^8.3.2",
-    "dotenv": "^10.0.0",
-    "lowdb": "^3.0.0"
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "eslint": "^7.32.0",
