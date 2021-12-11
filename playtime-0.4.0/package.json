@@ -5,10 +5,9 @@
   "main": "src/server.js",
   "type": "module",
   "scripts": {
-    "start": "node --experimental-json-modules src/server.js",
-    "dev": "./node_modules/.bin/nodemon --verbose --experimental-json-modules src/server.js",
+    "start": "node src/server.js",
     "lint": "./node_modules/.bin/eslint . --ext .js",
-    "test": "./node_modules/mocha/bin/mocha --ui tdd --experimental-json-modules test/**.js"
+    "test": "./node_modules/mocha/bin/mocha --ui tdd test/**.js"
   },
   "dependencies": {
     "@hapi/hapi": "^20.2.1",

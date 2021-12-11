@@ -1,11 +1,9 @@
 import { assert } from "chai";
 import { db } from "../src/models/db.js";
-import * as fixtures from "./fixtures.json";
+import { maggie, testUsers } from "./fixtures.js";
 import { isSubset } from "./test-utils.js";
 
 suite("User API tests", () => {
-  const { users } = fixtures.default;
-  const { maggie } = fixtures.default;
 
   setup(async () => {
     db.init();
@@ -20,13 +18,13 @@ suite("User API tests", () => {
   });
 
   test("delete all users", async () => {
-    for (let i = 0; i < users.length; i += 1) {
+    for (let i = 0; i < testUsers.length; i += 1) {
       // eslint-disable-next-line no-await-in-loop
-      await db.userStore.addUser(users[i]);
+      await db.userStore.addUser(testUsers[i]);
     }
     let returnedUsers = await db.userStore.getAllUsers();
     assert.equal(returnedUsers.length, 3);
-    await db.userStore.deleteAllUsers();
+    await db.userStore.deleteAll();
     returnedUsers = await db.userStore.getAllUsers();
     assert.equal(returnedUsers.length, 0);
   });
