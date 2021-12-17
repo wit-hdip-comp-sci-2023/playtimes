@@ -7,14 +7,18 @@ export const userMongoStore = {
   },
 
   async getUserById(id) {
-    const user = await User.findOne({ _id: id }).lean();
-    return user;
+    if (id) {
+      const user = await User.findOne({ _id: id }).lean();
+      return user;
+    }
+    return null;
   },
 
   async addUser(user) {
     const newUser = new User(user);
     const userObj = await newUser.save();
-    return await this.getUserById(userObj._id);
+    const u = await this.getUserById(userObj._id);
+    return u;
   },
 
   async getUserByEmail(email) {
@@ -23,10 +27,14 @@ export const userMongoStore = {
   },
 
   async deleteUserById(id) {
-    await User.deleteOne({ _id: id });
+    try {
+      await User.deleteOne({ _id: id });
+    } catch (error) {
+      console.log("bad id");
+    }
   },
 
   async deleteAll() {
     await User.deleteMany({});
-  },
+  }
 };

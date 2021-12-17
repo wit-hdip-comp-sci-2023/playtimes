@@ -1,21 +1,23 @@
 import { assert } from "chai";
 import { db } from "../src/models/db.js";
 import { maggie, testUsers } from "./fixtures.js";
+import { isSubset } from "./test-utils.js";
 
-suite("User API tests", () => {
+suite("User Model tests", () => {
 
   setup(async () => {
-    db.init();
+    db.init("mongo");
     await db.userStore.deleteAll();
     for (let i = 0; i < testUsers.length; i += 1) {
       // eslint-disable-next-line no-await-in-loop
-      await db.userStore.addUser(testUsers[i]);
+      testUsers[i] = await db.userStore.addUser(testUsers[i]);
     }
   });
 
   test("create a user", async () => {
     const newUser = await db.userStore.addUser(maggie);
-    assert.equal(newUser, maggie);
+    assert(isSubset(maggie, newUser), "testUser must be subset of returned user");
+    assert.isDefined(newUser._id);
   });
 
   test("delete all users", async () => {
