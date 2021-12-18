@@ -7,7 +7,7 @@ import { trackJsonStore } from "./json/track-json-store.js";
 import { userMongoStore } from "./mongo/user-mongo-store.js";
 import { playlistMongoStore } from "./mongo/playlist-mongo-store.js";
 import { trackMongoStore } from "./mongo/track-mongo-store.js";
-import { initMongo } from "./mongo/init.js";
+import { connectMongo } from "./mongo/connect.js";
 
 export const db = {
   userStore: null,
@@ -25,7 +25,7 @@ export const db = {
         this.userStore = userMongoStore;
         this.playlistStore = playlistMongoStore;
         this.trackStore = trackMongoStore;
-        initMongo();
+        connectMongo();
         break;
       default :
         this.userStore = userMemStore;
