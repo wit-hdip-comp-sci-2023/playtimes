@@ -2,6 +2,11 @@
 
 ## version 0.4.0
 
+- create test fixtures
+- introduce User model tests
+- incorporate mocha & chai components
+- complete joi schemas
+
 ## version 0.3.0
 
 - support delete playlist + tracks
