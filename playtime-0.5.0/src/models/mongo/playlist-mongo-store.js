@@ -1,6 +1,5 @@
 import { Playlist } from "./playlist.js";
 import { trackMongoStore } from "./track-mongo-store.js";
-import { User } from "./user.js";
 
 export const playlistMongoStore = {
   async getAllPlaylists() {
