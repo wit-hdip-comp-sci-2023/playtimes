@@ -1,7 +1,7 @@
 import { assert } from "chai";
 import { db } from "../src/models/db.js";
 import { testPlaylists, mozart } from "./fixtures.js";
-import { isSubset } from "./test-utils.js";
+import { assertSubset } from "./test-utils.js";
 
 suite("Playlist Model tests", () => {
 
@@ -16,7 +16,7 @@ suite("Playlist Model tests", () => {
 
   test("create a playlist", async () => {
     const playlist = await db.playlistStore.addPlaylist(mozart);
-    assert(isSubset(mozart, playlist), "playlist must be subset of returned playlist");
+    assertSubset(mozart, playlist);
     assert.isDefined(playlist._id);
   });
 
@@ -31,7 +31,7 @@ suite("Playlist Model tests", () => {
   test("get a playlist - success", async () => {
     const playlist = await db.playlistStore.addPlaylist(mozart);
     const returnedPlaylist = await db.playlistStore.getPlaylistById(playlist._id);
-    assert(isSubset(mozart, playlist), "playlist must be subset of returned playlist");
+    assertSubset(mozart, playlist);
   });
 
   test("delete One Playist - success", async () => {

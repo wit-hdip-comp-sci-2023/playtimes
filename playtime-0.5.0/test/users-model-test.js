@@ -1,7 +1,7 @@
 import { assert } from "chai";
 import { db } from "../src/models/db.js";
 import { maggie, testUsers } from "./fixtures.js";
-import { isSubset } from "./test-utils.js";
+import { assertSubset } from "./test-utils.js";
 
 suite("User Model tests", () => {
 
@@ -16,8 +16,7 @@ suite("User Model tests", () => {
 
   test("create a user", async () => {
     const newUser = await db.userStore.addUser(maggie);
-    assert(isSubset(maggie, newUser), "testUser must be subset of returned user");
-    assert.isDefined(newUser._id);
+    assertSubset(maggie, newUser);
   });
 
   test("delete all users", async () => {
