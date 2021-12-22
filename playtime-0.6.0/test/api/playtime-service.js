@@ -1,7 +1,6 @@
 import axios from "axios";
-import * as fixtures from "./fixtures.json";
 
-const { serviceUrl } = fixtures.default;
+import { serviceUrl } from "../fixtures.js";
 
 export const playtimeService = {
   playtimeUrl: serviceUrl,

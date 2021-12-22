@@ -1,10 +1,10 @@
 import Boom from "@hapi/boom";
 import { db } from "../models/db.js";
 
-export const Users = {
+export const usersApi = {
   find: {
     auth: false,
-    handler: async function(request, h) {
+    handler: async function (request, h) {
       try {
         const users = await db.userStore.getAllUsers();
         return users;
@@ -16,7 +16,7 @@ export const Users = {
 
   findOne: {
     auth: false,
-    handler: async function(request, h) {
+    handler: async function (request, h) {
       try {
         const user = await db.userStore.getUserById(request.params.id);
         if (!user) {
@@ -31,7 +31,7 @@ export const Users = {
 
   create: {
     auth: false,
-    handler: async function(request, h) {
+    handler: async function (request, h) {
       try {
         const user = await db.userStore.addUser(request.payload);
         if (user) {
@@ -46,7 +46,7 @@ export const Users = {
 
   deleteAll: {
     auth: false,
-    handler: async function(request, h) {
+    handler: async function (request, h) {
       try {
         await db.userStore.deleteAll();
         return h.response().code(204);

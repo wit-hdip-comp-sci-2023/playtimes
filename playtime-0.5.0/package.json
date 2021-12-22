@@ -6,9 +6,8 @@
   "type": "module",
   "scripts": {
     "start": "node src/server.js",
-    "dev": "./node_modules/.bin/nodemon  src/server.js",
     "lint": "./node_modules/.bin/eslint . --ext .js",
-    "test": "./node_modules/mocha/bin/mocha --ui tdd  test/**.js"
+    "test": "./node_modules/mocha/bin/mocha --ui tdd test/**.js"
   },
   "dependencies": {
     "@hapi/boom": "^9.1.4",
