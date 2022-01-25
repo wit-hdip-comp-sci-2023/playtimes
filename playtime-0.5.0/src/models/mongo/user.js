@@ -1,6 +1,4 @@
 import Mongoose from "mongoose";
-import Boom from "@hapi/boom";
-
 const { Schema } = Mongoose;
 
 const userSchema = new Schema({
@@ -9,17 +7,5 @@ const userSchema = new Schema({
   email: String,
   password: String,
 });
-
-userSchema.statics.findByEmail = function (email) {
-  return this.findOne({ email: email });
-};
-
-userSchema.methods.comparePassword = function (candidatePassword) {
-  const isMatch = this.password === candidatePassword;
-  if (!isMatch) {
-    throw Boom.unauthorized("Password mismatch");
-  }
-  return this;
-};
 
 export const User = Mongoose.model("User", userSchema);

@@ -1,4 +1,5 @@
 import { Track } from "./track.js";
+import { Playlist } from "./playlist.js";
 
 export const trackMongoStore = {
   async getAllTracks() {
@@ -19,12 +20,19 @@ export const trackMongoStore = {
   },
 
   async getTrackById(id) {
-    const track = await Track.findOne({ _id: id }).lean();
-    return track;
+    if (id) {
+      const track = await Track.findOne({ _id: id }).lean();
+      return track;
+    }
+    return null;
   },
 
   async deleteTrack(id) {
-    await Track.deleteOne({ _id: id });
+    try {
+      await Track.deleteOne({ _id: id });
+    } catch (error) {
+      console.log("bad id");
+    }
   },
 
   async deleteAllTracks() {
