@@ -1,7 +1,6 @@
 import Boom from "@hapi/boom";
 import { db } from "../models/db.js";
-import { IdSpec, TrackSpec, TrackArraySpec, PlaylistSpec } from "../models/joi-schemas.js";
-import { validationError } from "../utils/logger.js";
+import { TrackSpec, PlaylistSpec } from "../models/joi-schemas.js";
 
 export const Tracks = {
   find: {
@@ -14,10 +13,6 @@ export const Tracks = {
         return Boom.serverUnavailable("Database Error");
       }
     },
-    tags: ["api"],
-    response: { schema: TrackArraySpec, failAction: validationError },
-    description: "Get all tracks",
-    notes: "Returns all tracks",
   },
 
   findOne: {
@@ -33,11 +28,6 @@ export const Tracks = {
         return Boom.serverUnavailable("No track with this id");
       }
     },
-    tags: ["api"],
-    description: "Find a Track",
-    notes: "Returns a trackt",
-    validate: { params: { id: IdSpec }, failAction: validationError },
-    response: { schema: TrackSpec, failAction: validationError },
   },
 
   create: {
@@ -53,11 +43,6 @@ export const Tracks = {
         return Boom.serverUnavailable("Database Error");
       }
     },
-    tags: ["api"],
-    description: "Create a track",
-    notes: "Returns the newly created track",
-    validate: { payload: TrackSpec },
-    response: { schema: TrackSpec, failAction: validationError },
   },
 
   deleteAll: {
@@ -70,8 +55,6 @@ export const Tracks = {
         return Boom.serverUnavailable("Database Error");
       }
     },
-    tags: ["api"],
-    description: "Delete all tracks",
   },
 
   deleteOne: {
@@ -88,8 +71,5 @@ export const Tracks = {
         return Boom.serverUnavailable("No Track with this id");
       }
     },
-    tags: ["api"],
-    description: "Delete a track",
-    validate: { params: { id: IdSpec }, failAction: validationError },
   },
 };

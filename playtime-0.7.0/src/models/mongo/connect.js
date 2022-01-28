@@ -1,7 +1,7 @@
 import * as dotenv from "dotenv";
 import Mongoose from "mongoose";
 
-export function initMongo() {
+export function connectMongo() {
   dotenv.config();
 
   Mongoose.connect(process.env.db);
@@ -17,6 +17,5 @@ export function initMongo() {
 
   db.once("open", function () {
     console.log(`database connected to ${this.name} on ${this.host}`);
-    // seed();
   });
 }

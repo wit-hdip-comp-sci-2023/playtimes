@@ -8,9 +8,14 @@ export const playlistMongoStore = {
   },
 
   async getPlaylistById(id) {
-    const playlist = await Playlist.findOne({ _id: id }).lean();
-    playlist.tracks = await trackMongoStore.getTracksByPlaylistId(playlist._id);
-    return playlist;
+    if (id) {
+      const playlist = await Playlist.findOne({ _id: id }).lean();
+      if (playlist) {
+        playlist.tracks = await trackMongoStore.getTracksByPlaylistId(playlist._id);
+      }
+      return playlist;
+    }
+    return null;
   },
 
   async addPlaylist(playlist) {
@@ -25,10 +30,14 @@ export const playlistMongoStore = {
   },
 
   async deletePlaylistById(id) {
-    await Playlist.deleteOne({ _id: id });
+    try {
+      await Playlist.deleteOne({ _id: id });
+    } catch (error) {
+      console.log("bad id");
+    }
   },
 
   async deleteAllPlaylists() {
     await Playlist.deleteMany({});
-  },
+  }
 };

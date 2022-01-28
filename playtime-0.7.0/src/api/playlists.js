@@ -1,7 +1,6 @@
 import Boom from "@hapi/boom";
-import { IdSpec, PlaylistArraySpec, PlaylistSpec } from "../models/joi-schemas.js";
+import { PlaylistSpec } from "../models/joi-schemas.js";
 import { db } from "../models/db.js";
-import { validationError } from "../utils/logger.js";
 
 export const Playlists = {
   find: {

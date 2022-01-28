@@ -1,29 +1,30 @@
 import { assert } from "chai";
-import * as fixtures from "./fixtures.json";
 import { playtimeService } from "./playtime-service.js";
-import { isSubset } from "./test-utils.js";
+import { assertSubset } from "../test-utils.js";
+
+import { maggie, mozart, testPlaylists } from "../fixtures.js";
 
 suite("Playlist API tests", () => {
-  const { maggie, beethoven, testPlaylists } = fixtures.default;
+
   let user = null;
 
   setup(async () => {
     await playtimeService.deleteAllPlaylists();
     await playtimeService.deleteAllUsers();
     user = await playtimeService.createUser(maggie);
-    beethoven.userid = user._id;
+    mozart.userid = user._id;
   });
 
   teardown(async () => {});
 
   test("create playlist", async () => {
-    const returnedPlaylist = await playtimeService.createPlaylist(beethoven);
+    const returnedPlaylist = await playtimeService.createPlaylist(mozart);
     assert.isNotNull(returnedPlaylist);
-    assert(isSubset(beethoven, returnedPlaylist), "testUser must be subset of returned user");
+    assertSubset(mozart, returnedPlaylist);
   });
 
   test("delete a playlist", async () => {
-    const playlist = await playtimeService.createPlaylist(beethoven);
+    const playlist = await playtimeService.createPlaylist(mozart);
     const response = await playtimeService.deletePlaylist(playlist._id);
     assert.equal(response.status, 204);
     try {

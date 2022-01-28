@@ -1,18 +1,15 @@
-import Inert from "@hapi/inert";
 import Vision from "@hapi/vision";
 import Hapi from "@hapi/hapi";
 import Cookie from "@hapi/cookie";
 import dotenv from "dotenv";
 import path from "path";
 import Joi from "joi";
-import HapiSwagger from "hapi-swagger";
 import { fileURLToPath } from "url";
 import Handlebars from "handlebars";
 import { webRoutes } from "./web-routes.js";
-import { apiRoutes } from "./api-routes.js";
 import { db } from "./models/db.js";
 import { accountsController } from "./controllers/accounts-controller.js";
-import * as packageSpec from "../package.json";
+import { apiRoutes } from "./api-routes.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -23,32 +20,15 @@ if (result.error) {
   process.exit(1);
 }
 
-const swaggerOptions = {
-  info: {
-    title: "Playtime API",
-    version: packageSpec.default.version,
-  },
-};
-
 async function init() {
   const server = Hapi.server({
     port: 3000,
     host: "localhost",
   });
 
-  await server.register(Inert);
   await server.register(Vision);
   await server.register(Cookie);
   server.validator(Joi);
-
-  await server.register([
-    Inert,
-    Vision,
-    {
-      plugin: HapiSwagger,
-      options: swaggerOptions,
-    },
-  ]);
 
   server.views({
     engines: {
@@ -73,7 +53,7 @@ async function init() {
   });
   server.auth.default("session");
 
-  db.init();
+  db.init("mongo");
   server.route(webRoutes);
   server.route(apiRoutes);
   await server.start();
