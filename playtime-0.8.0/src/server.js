@@ -25,7 +25,7 @@ if (result.error) {
 const swaggerOptions = {
   info: {
     title: "Playtime API",
-    version: 0.1,
+    version: "0.1",
   },
 };
 
