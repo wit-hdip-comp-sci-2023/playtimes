@@ -25,12 +25,12 @@ suite("Track Model tests", () => {
     assertSubset (concerto, track);
   });
 
-  test("create multiple tracks", async () => {
+  test("create multiple trackApi", async () => {
     const tracks = await db.playlistStore.getPlaylistById(beethovenList._id);
     assert.equal(testTracks.length, testTracks.length)
   });
 
-  test("delete all tracks", async () => {
+  test("delete all trackApi", async () => {
     const tracks = await db.trackStore.getAllTracks();
     assert.equal(testTracks.length, tracks.length);
     await db.trackStore.deleteAllTracks();

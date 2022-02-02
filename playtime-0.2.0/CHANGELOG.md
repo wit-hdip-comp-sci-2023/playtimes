@@ -5,9 +5,9 @@
 - about controller + view added
 - introduce track model
 - playlist controller + view & partials added
-- support adding tracks to playlists
+- support adding trackApi to playlists
 - introduce sessions
-- associate playlists with users
+- associate playlists with userApi
 
 ## version 0.1.0
 

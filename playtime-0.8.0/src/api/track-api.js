@@ -3,7 +3,7 @@ import { db } from "../models/db.js";
 import { IdSpec, TrackSpec, TrackArraySpec, PlaylistSpec } from "../models/joi-schemas.js";
 import { validationError } from "../utils/logger.js";
 
-export const Tracks = {
+export const trackApi = {
   find: {
     auth: false,
     handler: async function (request, h) {
@@ -16,8 +16,8 @@ export const Tracks = {
     },
     tags: ["api"],
     response: { schema: TrackArraySpec, failAction: validationError },
-    description: "Get all tracks",
-    notes: "Returns all tracks",
+    description: "Get all trackApi",
+    notes: "Returns all trackApi",
   },
 
   findOne: {
@@ -71,7 +71,7 @@ export const Tracks = {
       }
     },
     tags: ["api"],
-    description: "Delete all tracks",
+    description: "Delete all trackApi",
   },
 
   deleteOne: {

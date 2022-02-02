@@ -10,7 +10,7 @@
 
 ## [0.4.8]
 
-- return tracks with playlist requests (denormalised)
+- return trackApi with playlist requests (denormalised)
 
 ## [0.4.7]
 
@@ -41,7 +41,7 @@
 
 ## [0.4.1]
 
-- delete all users
+- delete all userApi
 - test for delete all
 - setup and tear down test lifecycle
 
@@ -60,7 +60,7 @@
 
 ## [0.3.0]
 
-- first simple api, list all users
+- first simple api, list all userApi
 
 ## [0.2.2]
 
@@ -80,11 +80,11 @@
 ## [0.1.5]
 
 - allow playlists to be deleted
-- support edit and delete tracks
+- support edit and delete trackApi
 
 ## [0.1.4]
 
-- support for adding tracks to playlist
+- support for adding trackApi to playlist
 
 ## [0.1.3]
 

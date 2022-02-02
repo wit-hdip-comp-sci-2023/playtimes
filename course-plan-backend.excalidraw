@@ -2668,7 +2668,7 @@
       "updated": 1638876825524,
       "fontSize": 10.787493948176554,
       "fontFamily": 3,
-      "text": "Modules: \nhapi,vision,handlebars,uuid,\neslint-config-airbnb-base,\neslint-config-prettier,\neslint-plugin-import, prettier\n\nFeatures: \nUsers,PlaylistApi (global)\nMemory model for user & playlist\n\nExercises:\nTrack model\nadd tracks to Playlist UX",
+      "text": "Modules: \nhapi,vision,handlebars,uuid,\neslint-config-airbnb-base,\neslint-config-prettier,\neslint-plugin-import, prettier\n\nFeatures: \nUsers,PlaylistApi (global)\nMemory model for user & playlist\n\nExercises:\nTrack model\nadd trackApi to Playlist UX",
       "baseline": 173.736328125,
       "textAlign": "center",
       "verticalAlign": "top"
@@ -2698,7 +2698,7 @@
       "updated": 1639124468762,
       "fontSize": 9.787703065053032,
       "fontFamily": 3,
-      "text": "Modules\ncookie, dotenv, lowdb\n\nSolutions:\n- Track model\n- add tracks to Playlist UX\n\nFeatures:\nUser Sessions\n\nExercises:\ndelete playlists\ndelete tracks",
+      "text": "Modules\ncookie, dotenv, lowdb\n\nSolutions:\n- Track model\n- add trackApi to Playlist UX\n\nFeatures:\nUser Sessions\n\nExercises:\ndelete playlists\ndelete trackApi",
       "baseline": 141,
       "textAlign": "center",
       "verticalAlign": "top"
@@ -2728,7 +2728,7 @@
       "updated": 1639134484033,
       "fontSize": 10.281712300794924,
       "fontFamily": 3,
-      "text": "Modules: \njoi\n\nSolutions:\ndelete playlists\ndelete tracks\n\nFeatures:\nJOI User validation\nLowdb\n\nExercises:\nJoi validation for \nlogin, playlist & track\n",
+      "text": "Modules: \njoi\n\nSolutions:\ndelete playlists\ndelete trackApi\n\nFeatures:\nJOI User validation\nLowdb\n\nExercises:\nJoi validation for \nlogin, playlist & track\n",
       "baseline": 178,
       "textAlign": "center",
       "verticalAlign": "top"

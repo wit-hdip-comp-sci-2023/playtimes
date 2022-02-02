@@ -20,7 +20,7 @@ suite("User API tests", () => {
     assert.isDefined(newUser._id);
   });
 
-  test("delete all users", async () => {
+  test("delete all userApi", async () => {
     let returnedUsers = await playtimeService.getAllUsers();
     assert.equal(returnedUsers.length, 3);
     await playtimeService.deleteAllUsers();

@@ -2,7 +2,7 @@ import { v4 } from "uuid";
 // eslint-disable-next-line import/no-unresolved
 import { JSONFile, Low } from "lowdb";
 
-const db = new Low(new JSONFile("./src/models/json/users.json"));
+const db = new Low(new JSONFile("./src/models/json/userApi.json"));
 db.data = { users: [] };
 
 export const userJsonStore = {

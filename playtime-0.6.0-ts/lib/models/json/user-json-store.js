@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 import { v4 } from "uuid";
 import { JSONFile, Low } from "lowdb";
-const adapter = new JSONFile("./src/models/json/users.json");
+const adapter = new JSONFile("./src/models/json/userApi.json");
 const db = new Low(adapter);
 export const userJsonStore = {
     getAllUsers() {

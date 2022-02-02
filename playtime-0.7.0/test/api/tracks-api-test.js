@@ -15,7 +15,7 @@ suite("Track API tests", () => {
   test("create track", async () => {
   });
 
-  test("create Multiple tracks", async () => {
+  test("create Multiple trackApi", async () => {
   });
 
   test("Delete Track", async () => {

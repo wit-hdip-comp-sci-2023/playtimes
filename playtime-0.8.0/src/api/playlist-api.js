@@ -3,7 +3,7 @@ import { IdSpec, PlaylistArraySpec, PlaylistSpec } from "../models/joi-schemas.j
 import { db } from "../models/db.js";
 import { validationError } from "../utils/logger.js";
 
-export const Playlists = {
+export const playlistApi = {
   find: {
     auth: false,
     handler: async function (request, h) {

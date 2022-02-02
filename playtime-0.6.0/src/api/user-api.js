@@ -1,12 +1,10 @@
 import Boom from "@hapi/boom";
 import { db } from "../models/db.js";
-import { validationError } from "../utils/logger.js";
-import { IdSpec, UserArray, UserSpec } from "../models/joi-schemas.js";
 
-export const Users = {
+export const userApi = {
   find: {
     auth: false,
-    handler: async function(request, h) {
+    handler: async function (request, h) {
       try {
         const users = await db.userStore.getAllUsers();
         return users;
@@ -14,15 +12,11 @@ export const Users = {
         return Boom.serverUnavailable("Database Error");
       }
     },
-    tags: ["api"],
-    description: "Get all users",
-    notes: "Returns details of all users",
-    response: { schema: UserArray, failAction: validationError },
   },
 
   findOne: {
     auth: false,
-    handler: async function(request, h) {
+    handler: async function (request, h) {
       try {
         const user = await db.userStore.getUserById(request.params.id);
         if (!user) {
@@ -33,16 +27,11 @@ export const Users = {
         return Boom.serverUnavailable("No User with this id");
       }
     },
-    tags: ["api"],
-    description: "Get a specific user",
-    notes: "Returns user details",
-    validate: { params: { id: IdSpec }, failAction: validationError },
-    response: { schema: UserSpec, failAction: validationError },
   },
 
   create: {
     auth: false,
-    handler: async function(request, h) {
+    handler: async function (request, h) {
       try {
         const user = await db.userStore.addUser(request.payload);
         if (user) {
@@ -53,16 +42,11 @@ export const Users = {
         return Boom.serverUnavailable("Database Error");
       }
     },
-    tags: ["api"],
-    description: "Create a User",
-    notes: "Returns the newly created user",
-    validate: { payload: UserSpec, failAction: validationError },
-    response: { schema: UserSpec, failAction: validationError },
   },
 
   deleteAll: {
     auth: false,
-    handler: async function(request, h) {
+    handler: async function (request, h) {
       try {
         await db.userStore.deleteAll();
         return h.response().code(204);
@@ -70,8 +54,5 @@ export const Users = {
         return Boom.serverUnavailable("Database Error");
       }
     },
-    tags: ["api"],
-    description: "Delete all users",
-    notes: "All users removed from Playtime",
   },
 };

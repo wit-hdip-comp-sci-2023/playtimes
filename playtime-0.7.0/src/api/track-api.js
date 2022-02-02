@@ -2,7 +2,7 @@ import Boom from "@hapi/boom";
 import { db } from "../models/db.js";
 import { TrackSpec, PlaylistSpec } from "../models/joi-schemas.js";
 
-export const TrackApi = {
+export const trackApi = {
   find: {
     auth: false,
     handler: async function (request, h) {

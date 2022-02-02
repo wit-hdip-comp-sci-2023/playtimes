@@ -12,7 +12,6 @@ import { webRoutes } from "./web-routes.js";
 import { apiRoutes } from "./api-routes.js";
 import { db } from "./models/db.js";
 import { accountsController } from "./controllers/accounts-controller.js";
-import * as packageSpec from "../package.json";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -26,7 +25,7 @@ if (result.error) {
 const swaggerOptions = {
   info: {
     title: "Playtime API",
-    version: packageSpec.default.version,
+    version: 0.1,
   },
 };
 
@@ -73,7 +72,7 @@ async function init() {
   });
   server.auth.default("session");
 
-  db.init();
+  db.init("mongo");
   server.route(webRoutes);
   server.route(apiRoutes);
   await server.start();

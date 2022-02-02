@@ -5,7 +5,7 @@ import { User, UserStore } from "../stores-types";
 type Data = {
   users: User[] // Expect posts to be an array of strings
 }
-const adapter = new JSONFile<Data>("./src/models/json/users.json");
+const adapter = new JSONFile<Data>("./src/models/json/userApi.json");
 const db = new Low<Data>(adapter);
 
 export const userJsonStore: UserStore = {
