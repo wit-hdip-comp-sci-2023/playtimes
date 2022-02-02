@@ -38,7 +38,7 @@ suite("Track API tests", () => {
     }
   });
 
-  test("Delete Tracks", async () => {
+  test("Delete TrackApi", async () => {
     for (let i = 0; i < testTracks.length; i += 1) {
       // eslint-disable-next-line no-await-in-loop
       await playtimeService.createTrack(beethovenSonatas._id, testTracks[i]);

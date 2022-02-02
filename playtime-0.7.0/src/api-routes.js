@@ -1,22 +1,22 @@
-import { Users } from "./api/users.js";
-import { Playlists } from "./api/playlists.js";
-import { Tracks } from "./api/tracks.js";
+import { UserApi } from "./api/user-api.js";
+import { PlaylistApi } from "./api/playlist-api.js";
+import { TrackApi } from "./api/track-api.js";
 
 export const apiRoutes = [
-  { method: "GET", path: "/api/users", config: Users.find },
-  { method: "POST", path: "/api/users", config: Users.create },
-  { method: "DELETE", path: "/api/users", config: Users.deleteAll },
-  { method: "GET", path: "/api/users/{id}", config: Users.findOne },
+  { method: "GET", path: "/api/users", config: UserApi.find },
+  { method: "POST", path: "/api/users", config: UserApi.create },
+  { method: "DELETE", path: "/api/users", config: UserApi.deleteAll },
+  { method: "GET", path: "/api/users/{id}", config: UserApi.findOne },
 
-  { method: "POST", path: "/api/playlists", config: Playlists.create },
-  { method: "DELETE", path: "/api/playlists", config: Playlists.deleteAll },
-  { method: "GET", path: "/api/playlists", config: Playlists.find },
-  { method: "GET", path: "/api/playlists/{id}", config: Playlists.findOne },
-  { method: "DELETE", path: "/api/playlists/{id}", config: Playlists.deleteOne },
+  { method: "POST", path: "/api/playlists", config: PlaylistApi.create },
+  { method: "DELETE", path: "/api/playlists", config: PlaylistApi.deleteAll },
+  { method: "GET", path: "/api/playlists", config: PlaylistApi.find },
+  { method: "GET", path: "/api/playlists/{id}", config: PlaylistApi.findOne },
+  { method: "DELETE", path: "/api/playlists/{id}", config: PlaylistApi.deleteOne },
 
-  { method: "GET", path: "/api/tracks", config: Tracks.find },
-  { method: "GET", path: "/api/tracks/{id}", config: Tracks.findOne },
-  { method: "POST", path: "/api/playlists/{id}/tracks", config: Tracks.create },
-  { method: "DELETE", path: "/api/tracks", config: Tracks.deleteAll },
-  { method: "DELETE", path: "/api/tracks/{id}", config: Tracks.deleteOne },
+  { method: "GET", path: "/api/tracks", config: TrackApi.find },
+  { method: "GET", path: "/api/tracks/{id}", config: TrackApi.findOne },
+  { method: "POST", path: "/api/playlists/{id}/tracks", config: TrackApi.create },
+  { method: "DELETE", path: "/api/tracks", config: TrackApi.deleteAll },
+  { method: "DELETE", path: "/api/tracks/{id}", config: TrackApi.deleteOne },
 ];

@@ -91,6 +91,6 @@ export const Playlists = {
       }
     },
     tags: ["api"],
-    description: "Delete all Playlists",
+    description: "Delete all PlaylistApi",
   },
 };

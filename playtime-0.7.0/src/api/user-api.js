@@ -1,7 +1,7 @@
 import Boom from "@hapi/boom";
 import { db } from "../models/db.js";
 
-export const Users = {
+export const UserApi = {
   find: {
     auth: false,
     handler: async function(request, h) {

@@ -2668,7 +2668,7 @@
       "updated": 1638876825524,
       "fontSize": 10.787493948176554,
       "fontFamily": 3,
-      "text": "Modules: \nhapi,vision,handlebars,uuid,\neslint-config-airbnb-base,\neslint-config-prettier,\neslint-plugin-import, prettier\n\nFeatures: \nUsers,Playlists (global)\nMemory model for user & playlist\n\nExercises:\nTrack model\nadd tracks to Playlist UX",
+      "text": "Modules: \nhapi,vision,handlebars,uuid,\neslint-config-airbnb-base,\neslint-config-prettier,\neslint-plugin-import, prettier\n\nFeatures: \nUsers,PlaylistApi (global)\nMemory model for user & playlist\n\nExercises:\nTrack model\nadd tracks to Playlist UX",
       "baseline": 173.736328125,
       "textAlign": "center",
       "verticalAlign": "top"

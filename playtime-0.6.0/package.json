@@ -1,6 +1,6 @@
 {
   "name": "playtime",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "A Playlist application for the HDip in Computing, WIT",
   "main": "src/server.js",
   "type": "module",
@@ -29,7 +29,6 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.25.4",
     "mocha": "^9.2.0",
-    "nodemon": "^2.0.15",
     "prettier": "^2.5.1"
   }
 }

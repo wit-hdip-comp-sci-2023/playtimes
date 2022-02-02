@@ -2,7 +2,7 @@ import Boom from "@hapi/boom";
 import { PlaylistSpec } from "../models/joi-schemas.js";
 import { db } from "../models/db.js";
 
-export const Playlists = {
+export const PlaylistApi = {
   find: {
     auth: false,
     handler: async function (request, h) {
