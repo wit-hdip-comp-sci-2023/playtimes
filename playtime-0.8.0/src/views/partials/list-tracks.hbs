@@ -5,11 +5,10 @@
       <th>Artist</th>
       <th>Duration</th>
       <th></th>
-      <th></th>
     </tr>
   </thead>
   <tbody>
-    {{#each playlist.trackApi}}
+    {{#each playlist.tracks}}
       <tr>
         <td>
           {{title}}
@@ -19,11 +18,6 @@
         </td>
         <td>
           {{duration}}
-        </td>
-        <td>
-          <a href="/track/{{../playlist._id}}/edittrack/{{_id}}" class="ui icon button">
-            <i class="fas fa-edit"></i>
-          </a>
         </td>
         <td>
           <a href="/playlist/{{../playlist._id}}/deletetrack/{{_id}}" class="ui icon button">
