@@ -1,7 +1,7 @@
 import Boom from "@hapi/boom";
 import { db } from "../models/db.js";
-import { IdSpec, TrackSpec, TrackArraySpec, PlaylistSpec } from "../models/joi-schemas.js";
-import { validationError } from "../utils/logger.js";
+import { IdSpec, TrackSpec, TrackArraySpec } from "../models/joi-schemas.js";
+import { validationError } from "./logger.js";
 
 export const trackApi = {
   find: {
@@ -35,7 +35,7 @@ export const trackApi = {
     },
     tags: ["api"],
     description: "Find a Track",
-    notes: "Returns a trackt",
+    notes: "Returns a track",
     validate: { params: { id: IdSpec }, failAction: validationError },
     response: { schema: TrackSpec, failAction: validationError },
   },

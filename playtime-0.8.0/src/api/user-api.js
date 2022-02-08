@@ -1,6 +1,6 @@
 import Boom from "@hapi/boom";
 import { db } from "../models/db.js";
-import { validationError } from "../utils/logger.js";
+import { validationError } from "./logger.js";
 import { IdSpec, UserArray, UserSpec } from "../models/joi-schemas.js";
 
 export const userApi = {
