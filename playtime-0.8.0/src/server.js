@@ -9,9 +9,9 @@ import HapiSwagger from "hapi-swagger";
 import { fileURLToPath } from "url";
 import Handlebars from "handlebars";
 import { webRoutes } from "./web-routes.js";
-import { apiRoutes } from "./api-routes.js";
 import { db } from "./models/db.js";
 import { accountsController } from "./controllers/accounts-controller.js";
+import { apiRoutes } from "./api-routes.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -38,7 +38,6 @@ async function init() {
   await server.register(Inert);
   await server.register(Vision);
   await server.register(Cookie);
-  server.validator(Joi);
 
   await server.register([
     Inert,
@@ -48,6 +47,8 @@ async function init() {
       options: swaggerOptions,
     },
   ]);
+
+  server.validator(Joi);
 
   server.views({
     engines: {

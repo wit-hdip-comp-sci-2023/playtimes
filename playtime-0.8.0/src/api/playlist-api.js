@@ -1,7 +1,6 @@
 import Boom from "@hapi/boom";
-import { IdSpec, PlaylistArraySpec, PlaylistSpec } from "../models/joi-schemas.js";
+import { PlaylistSpec } from "../models/joi-schemas.js";
 import { db } from "../models/db.js";
-import { validationError } from "./logger.js";
 
 export const playlistApi = {
   find: {
@@ -14,10 +13,6 @@ export const playlistApi = {
         return Boom.serverUnavailable("Database Error");
       }
     },
-    tags: ["api"],
-    response: { schema: PlaylistArraySpec, failAction: validationError },
-    description: "Get all playlists",
-    notes: "Returns all playlists",
   },
 
   findOne: {
@@ -33,11 +28,6 @@ export const playlistApi = {
         return Boom.serverUnavailable("No Playlist with this id");
       }
     },
-    tags: ["api"],
-    description: "Find a Playlist",
-    notes: "Returns a playlist",
-    validate: { params: { id: IdSpec }, failAction: validationError },
-    response: { schema: PlaylistSpec, failAction: validationError },
   },
 
   create: {
@@ -54,11 +44,6 @@ export const playlistApi = {
         return Boom.serverUnavailable("Database Error");
       }
     },
-    tags: ["api"],
-    description: "Create a Playlist",
-    notes: "Returns the newly created playlist",
-    validate: { payload: PlaylistSpec, failAction: validationError },
-    response: { schema: PlaylistSpec, failAction: validationError },
   },
 
   deleteOne: {
@@ -75,9 +60,6 @@ export const playlistApi = {
         return Boom.serverUnavailable("No Playlist with this id");
       }
     },
-    tags: ["api"],
-    description: "Delete a playlist",
-    validate: { params: { id: IdSpec }, failAction: validationError },
   },
 
   deleteAll: {
@@ -90,7 +72,5 @@ export const playlistApi = {
         return Boom.serverUnavailable("Database Error");
       }
     },
-    tags: ["api"],
-    description: "Delete all PlaylistApi",
   },
 };
