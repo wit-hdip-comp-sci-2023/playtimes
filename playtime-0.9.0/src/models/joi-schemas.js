@@ -7,16 +7,19 @@ export const UserCredentialsSpec = Joi.object()
     email: Joi.string().email().example("homer@simpson.com").required(),
     password: Joi.string().example("secret").required(),
   })
-  .label("User Credentials");
+  .label("UserCredentials");
 
 export const UserSpec = UserCredentialsSpec.keys({
   firstName: Joi.string().example("Homer").required(),
   lastName: Joi.string().example("Simpson").required(),
+}).label("UserDetails");
+
+export const UserSpecPlus = UserSpec.keys({
   _id: IdSpec,
   __v: Joi.number(),
-}).label("User Details");
+}).label("UserDetailsPlus");
 
-export const UserArray = Joi.array().items(UserSpec).label("User Array");
+export const UserArray = Joi.array().items(UserSpecPlus).label("UserArray");
 
 export const TrackSpec = Joi.object()
   .keys({
@@ -24,21 +27,27 @@ export const TrackSpec = Joi.object()
     artist: Joi.string().required().example("Beethoven"),
     duration: Joi.number().allow("").optional().example(12),
     playlistid: IdSpec,
-    _id: IdSpec,
-    __v: Joi.number(),
   })
   .label("Track");
 
-export const TrackArraySpec = Joi.array().items(TrackSpec).label("Track Array");
+export const TrackSpecPlus = TrackSpec.keys({
+  _id: IdSpec,
+  __v: Joi.number(),
+}).label("TrackPlus");
+
+export const TrackArraySpec = Joi.array().items(TrackSpecPlus).label("TrackArray");
 
 export const PlaylistSpec = Joi.object()
   .keys({
     title: Joi.string().required().example("Beethoven Sonatas"),
     userid: IdSpec,
-    _id: IdSpec,
     tracks: TrackArraySpec,
-    __v: Joi.number(),
   })
   .label("Playlist");
 
-export const PlaylistArraySpec = Joi.array().items(PlaylistSpec).label("Playlist Array");
+export const PlaylistSpecPlus = PlaylistSpec.keys({
+  _id: IdSpec,
+  __v: Joi.number(),
+}).label("PlaylistPlus");
+
+export const PlaylistArraySpec = Joi.array().items(PlaylistSpecPlus).label("PlaylistArray");

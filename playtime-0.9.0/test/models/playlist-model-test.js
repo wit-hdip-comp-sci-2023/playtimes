@@ -1,16 +1,17 @@
 import { assert } from "chai";
 import { db } from "../../src/models/db.js";
-import { testPlaylists, mozart } from "../fixtures.js";
+import { testPlaylists, mozart, testUsers } from "../fixtures.js";
 import { assertSubset } from "../test-utils.js";
 
-suite("Playlist Model tests", () => {
+const playlists = new Array(testPlaylists.length);
 
+suite("Playlist Model tests", () => {
   setup(async () => {
-    db.init("mongo");
+    db.init("json");
     await db.playlistStore.deleteAllPlaylists();
     for (let i = 0; i < testPlaylists.length; i += 1) {
       // eslint-disable-next-line no-await-in-loop
-      testPlaylists[i] = await db.playlistStore.addPlaylist(testPlaylists[i]);
+      playlists[i] = await db.playlistStore.addPlaylist(testPlaylists[i]);
     }
   });
 
@@ -35,7 +36,7 @@ suite("Playlist Model tests", () => {
   });
 
   test("delete One Playist - success", async () => {
-    const id = testPlaylists[0]._id;
+    const id = playlists[0]._id;
     await db.playlistStore.deletePlaylistById(id);
     const returnedPlaylists = await db.playlistStore.getAllPlaylists();
     assert.equal(returnedPlaylists.length, testPlaylists.length - 1);

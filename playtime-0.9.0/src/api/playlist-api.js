@@ -1,5 +1,5 @@
 import Boom from "@hapi/boom";
-import { IdSpec, PlaylistArraySpec, PlaylistSpec } from "../models/joi-schemas.js";
+import { IdSpec, PlaylistArraySpec, PlaylistSpec, PlaylistSpecPlus } from "../models/joi-schemas.js";
 import { db } from "../models/db.js";
 import { validationError } from "./logger.js";
 
@@ -37,7 +37,7 @@ export const playlistApi = {
     description: "Find a Playlist",
     notes: "Returns a playlist",
     validate: { params: { id: IdSpec }, failAction: validationError },
-    response: { schema: PlaylistSpec, failAction: validationError },
+    response: { schema: PlaylistSpecPlus, failAction: validationError },
   },
 
   create: {
@@ -58,7 +58,7 @@ export const playlistApi = {
     description: "Create a Playlist",
     notes: "Returns the newly created playlist",
     validate: { payload: PlaylistSpec, failAction: validationError },
-    response: { schema: PlaylistSpec, failAction: validationError },
+    response: { schema: PlaylistSpecPlus, failAction: validationError },
   },
 
   deleteOne: {
