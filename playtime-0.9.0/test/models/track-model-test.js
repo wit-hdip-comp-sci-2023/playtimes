@@ -3,9 +3,8 @@ import { db } from "../../src/models/db.js";
 import { testPlaylists, testTracks, beethoven, mozart, concerto, testUsers } from "../fixtures.js";
 import { assertSubset } from "../test-utils.js";
 
-const tracks = new Array(testPlaylists.length);
-
 suite("Track Model tests", () => {
+
   let beethovenList = null;
 
   setup(async () => {
@@ -15,20 +14,20 @@ suite("Track Model tests", () => {
     beethovenList = await db.playlistStore.addPlaylist(beethoven);
     for (let i = 0; i < testTracks.length; i += 1) {
       // eslint-disable-next-line no-await-in-loop
-      tracks[i] = await db.trackStore.addTrack(beethovenList._id, testTracks[i]);
+      testTracks[i] = await db.trackStore.addTrack(beethovenList._id, testTracks[i]);
     }
   });
 
   test("create single track", async () => {
     const mozartList = await db.playlistStore.addPlaylist(mozart);
-    const track = await db.trackStore.addTrack(mozartList._id, concerto);
+    const track = await db.trackStore.addTrack(mozartList._id, concerto)
     assert.isNotNull(track._id);
-    assertSubset(concerto, track);
+    assertSubset (concerto, track);
   });
 
   test("create multiple trackApi", async () => {
     const tracks = await db.playlistStore.getPlaylistById(beethovenList._id);
-    assert.equal(testTracks.length, testTracks.length);
+    assert.equal(testTracks.length, testTracks.length)
   });
 
   test("delete all trackApi", async () => {
@@ -41,9 +40,9 @@ suite("Track Model tests", () => {
 
   test("get a track - success", async () => {
     const mozartList = await db.playlistStore.addPlaylist(mozart);
-    const track = await db.trackStore.addTrack(mozartList._id, concerto);
+    const track = await db.trackStore.addTrack(mozartList._id, concerto)
     const newTrack = await db.trackStore.getTrackById(track._id);
-    assertSubset(concerto, newTrack);
+    assertSubset (concerto, newTrack);
   });
 
   test("delete One Track - success", async () => {

@@ -2,7 +2,7 @@ import { v4 } from "uuid";
 // eslint-disable-next-line import/no-unresolved
 import { JSONFile, Low } from "lowdb";
 
-const db = new Low(new JSONFile("./src/models/json/trackApi.json"));
+const db = new Low(new JSONFile("./src/models/json/tracks.json"));
 db.data = { tracks: [] };
 
 export const trackJsonStore = {
@@ -27,13 +27,17 @@ export const trackJsonStore = {
 
   async getTrackById(id) {
     await db.read();
-    return db.data.tracks.find((track) => track._id === id);
+    let track = db.data.tracks.find((track) => track._id === id);
+    if (track == undefined) {
+      track = null;
+    }
+    return track
   },
 
   async deleteTrack(id) {
     await db.read();
     const index = db.data.tracks.findIndex((track) => track._id === id);
-    db.data.tracks.splice(index, 1);
+    if (index !== -1) db.data.tracks.splice(index, 1);
     await db.write();
   },
 

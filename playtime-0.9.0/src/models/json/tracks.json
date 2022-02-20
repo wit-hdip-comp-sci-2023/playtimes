@@ -1,18 +1,3 @@
 {
-  "tracks": [
-    {
-      "title": "Piano Sonata No. 3",
-      "artist": "Beethoven",
-      "duration": 5,
-      "_id": "06265f95-8de1-4644-8ced-0f27ed94ca20",
-      "playlistid": "ed51535f-74cb-41f6-9799-f022c7e5d4cb"
-    },
-    {
-      "title": "Piano Sonata No. 7",
-      "artist": "Beethoven",
-      "duration": 6,
-      "_id": "54f72f92-9442-48c3-93ac-b4e5c21654e9",
-      "playlistid": "ed51535f-74cb-41f6-9799-f022c7e5d4cb"
-    }
-  ]
+  "tracks": []
 }

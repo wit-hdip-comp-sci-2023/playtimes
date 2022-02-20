@@ -46,20 +46,19 @@ suite("Track Model tests", () => {
   });
 
   test("delete One Track - success", async () => {
-    const id = testTracks[0]._id;
-    await db.trackStore.deleteTrack(id);
+    await db.trackStore.deleteTrack(testTracks[0]._id);
     const tracks = await db.trackStore.getAllTracks();
     assert.equal(tracks.length, testPlaylists.length - 1);
-    const deletedTrack = await db.trackStore.getTrackById(id);
+    const deletedTrack = await db.trackStore.getTrackById(testTracks[0]._id);
     assert.isNull(deletedTrack);
   });
 
-  test("get a playlist - bad params", async () => {
+  test("get a track - bad params", async () => {
     assert.isNull(await db.trackStore.getTrackById(""));
     assert.isNull(await db.trackStore.getTrackById());
   });
 
-  test("delete One User - fail", async () => {
+  test("delete one track - fail", async () => {
     await db.trackStore.deleteTrack("bad-id");
     const tracks = await db.trackStore.getAllTracks();
     assert.equal(tracks.length, testPlaylists.length);
