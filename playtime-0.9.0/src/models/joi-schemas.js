@@ -51,3 +51,4 @@ export const PlaylistSpecPlus = PlaylistSpec.keys({
 }).label("PlaylistPlus");
 
 export const PlaylistArraySpec = Joi.array().items(PlaylistSpecPlus).label("PlaylistArray");
+

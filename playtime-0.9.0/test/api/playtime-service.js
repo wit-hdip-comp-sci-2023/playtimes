@@ -15,8 +15,12 @@ export const playtimeService = {
   },
 
   async getAllUsers() {
-    const res = await axios.get(`${this.playtimeUrl}/api/users`);
-    return res.data;
+    try {
+      const res = await axios.get(`${this.playtimeUrl}/api/users`);
+      return res.data;
+    } catch (e) {
+      return null;
+    }
   },
 
   async deleteAllUsers() {

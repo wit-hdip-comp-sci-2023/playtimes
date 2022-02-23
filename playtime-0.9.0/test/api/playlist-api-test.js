@@ -12,6 +12,7 @@ suite("Playlist API tests", () => {
     await playtimeService.deleteAllPlaylists();
     await playtimeService.deleteAllUsers();
     user = await playtimeService.createUser(maggie);
+    await playtimeService.authenticate(maggie);
     mozart.userid = user._id;
   });
 
