@@ -18,9 +18,12 @@ export const webRoutes = [
   { method: "POST", path: "/dashboard/addplaylist", config: dashboardController.addPlaylist },
   { method: "GET", path: "/dashboard/deleteplaylist/{id}", config: dashboardController.deletePlaylist },
 
+
+
   { method: "GET", path: "/playlist/{id}", config: playlistController.index },
   { method: "POST", path: "/playlist/{id}/addtrack", config: playlistController.addTrack },
   { method: "GET", path: "/playlist/{id}/deletetrack/{trackid}", config: playlistController.deleteTrack },
+  { method: "POST", path: "/playlist/{id}/uploadimage", config: playlistController.uploadFile },
 
   { method: "GET", path: "/track/{id}/edittrack/{trackid}", config: trackController.index },
   { method: "POST", path: "/track/{id}/updatetrack/{trackid}", config: trackController.update },

@@ -24,6 +24,14 @@ export const playlistMongoStore = {
     return this.getPlaylistById(playlistObj._id);
   },
 
+  async updatePlaylist(updatedPlaylist) {
+    const playlist = await Playlist.findOne({ _id: updatedPlaylist._id });
+    playlist.title = updatedPlaylist.title;
+    playlist.img = updatedPlaylist.img;
+    await playlist.save();
+  },
+
+
   async getUserPlaylists(id) {
     const playlist = await Playlist.find({ userid: id }).lean();
     return playlist;
