@@ -8,6 +8,7 @@ const users = new Array(testUsers.length);
 
 suite("User API tests", () => {
   setup(async () => {
+    playtimeService.clearAuth();
     await playtimeService.createUser(maggie);
     await playtimeService.authenticate(maggie);
     await playtimeService.deleteAllUsers();

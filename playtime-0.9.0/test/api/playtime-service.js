@@ -1,5 +1,5 @@
 import axios from "axios";
-import { serviceUrl } from "../fixtures.js";
+import { maggie, serviceUrl } from "../fixtures.js";
 
 export const playtimeService = {
   playtimeUrl: serviceUrl,
@@ -84,7 +84,7 @@ export const playtimeService = {
     return response.data;
   },
 
-  async clearAuth(user) {
+  async clearAuth() {
     axios.defaults.headers.common["Authorization"] = "";
-  }
+  },
 };

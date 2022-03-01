@@ -1,17 +1,20 @@
 import { assert } from "chai";
 import { playtimeService } from "./playtime-service.js";
 import { assertSubset } from "../test-utils.js";
-
-import { maggie, mozart, testPlaylists } from "../fixtures.js";
+import { maggie, maggieCredentials, mozart, testPlaylists } from "../fixtures.js";
 
 suite("Playlist API tests", () => {
 
   let user = null;
 
   setup(async () => {
+    playtimeService.clearAuth();
+    user = await playtimeService.createUser(maggie);
+    await playtimeService.authenticate(maggieCredentials);
     await playtimeService.deleteAllPlaylists();
     await playtimeService.deleteAllUsers();
     user = await playtimeService.createUser(maggie);
+    await playtimeService.authenticate(maggieCredentials);
     mozart.userid = user._id;
   });
 

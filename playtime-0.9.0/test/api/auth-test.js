@@ -6,6 +6,7 @@ import { maggie } from "../fixtures.js";
 suite("Authentication API tests", function() {
 
   setup(async function() {
+    playtimeService.clearAuth()
     await playtimeService.createUser(maggie);
     await playtimeService.authenticate(maggie);
     await playtimeService.deleteAllUsers();
@@ -25,5 +26,15 @@ suite("Authentication API tests", function() {
     const userInfo = decodeToken(response.token);
     assert.equal(userInfo.email, returnedUser.email);
     assert.equal(userInfo.userId, returnedUser._id);
+  });
+
+  test("check Unauthorized", async function() {
+    playtimeService.clearAuth()
+    try {
+      await playtimeService.deleteAllUsers();
+      assert.fail("Route not protected");
+    } catch (error) {
+      assert.equal(error.response.data.statusCode, 401);
+    }
   });
 });

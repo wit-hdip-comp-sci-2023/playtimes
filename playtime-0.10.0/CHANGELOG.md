@@ -1,5 +1,17 @@
 # Playtime Changelog
 
+## [0.9.0]
+
+- Introduce JWT authentication for API routes
+
+## [0.8.0]
+
+- OpenAPI/Swagger annotations + documentation
+
+## [0.7.0]
+
+- API Implementations
+
 ## [0.6.0]
 
 - Mongo implementation if all models
