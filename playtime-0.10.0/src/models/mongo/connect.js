@@ -1,6 +1,5 @@
 import * as dotenv from "dotenv";
 import Mongoose from "mongoose";
-
 import { seedData } from "./seed-data.js";
 import * as seeder from "mais-mongoose-seeder";
 
@@ -26,7 +25,7 @@ export function connectMongo() {
     console.log("database disconnected");
   });
 
-  db.once("open", function() {
+  db.once("open", function () {
     console.log(`database connected to ${this.name} on ${this.host}`);
     seed();
   });

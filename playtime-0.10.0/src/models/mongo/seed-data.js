@@ -35,17 +35,5 @@ export const seedData = {
       duration: 15,
       playlistid: "->playlists.mozart"
     },
-    track_2 : {
-      title: "Violin Concerto No. 2",
-      artist: "Mozart",
-      duration: 11,
-      playlistid: "->playlists.mozart"
-    },
-    track_3 : {
-      title: "Violin Concerto No. 3",
-      artist: "Mozart",
-      duration: 23,
-      playlistid: "->playlists.mozart"
-    }
   }
 };

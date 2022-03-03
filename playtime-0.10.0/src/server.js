@@ -14,7 +14,6 @@ import { db } from "./models/db.js";
 import { accountsController } from "./controllers/accounts-controller.js";
 import { validate } from "./api/jwt-utils.js";
 import { apiRoutes } from "./api-routes.js";
-import { imageStore } from "./utils/image-store.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -24,13 +23,6 @@ if (result.error) {
   console.log(result.error.message);
   process.exit(1);
 }
-
-const credentials = {
-  cloud_name: process.env.name,
-  api_key: process.env.key,
-  api_secret: process.env.secret
-};
-imageStore.configure(credentials);
 
 const swaggerOptions = {
   info: {

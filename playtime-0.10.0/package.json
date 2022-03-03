@@ -1,12 +1,12 @@
 {
   "name": "playtime",
-  "version": "0.9.0",
+  "version": "0.10.0",
   "description": "A Playlist application for the HDip in Computing, WIT",
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "node src/server.js ",
-    "dev": "./node_modules/.bin/nodemon src/server.js  --ignore 'src/models/json/*.json'",
+    "start": "node src/server.js",
+    "dev": "./node_modules/.bin/nodemon src/server.js --ignore 'src/models/json/*.json'",
     "lint": "./node_modules/.bin/eslint . --ext .js",
     "test": "./node_modules/mocha/bin/mocha --ui tdd test/**/*.js",
     "testmodels": "./node_modules/mocha/bin/mocha --ui tdd test/models/**/*.js",
@@ -32,7 +32,6 @@
     "@hapi/hapi": "^20.2.1",
     "@hapi/inert": "^6.0.5",
     "@hapi/vision": "^6.1.0",
-    "cloudinary": "^1.28.1",
     "dotenv": "^14.3.2",
     "handlebars": "^4.7.7",
     "hapi-auth-jwt2": "^10.2.0",

@@ -1,7 +1,7 @@
 import { assert } from "chai";
 import { assertSubset } from "../test-utils.js";
 import { playtimeService } from "./playtime-service.js";
-import { maggie, mozart, testPlaylists, testTracks, concerto, maggieCredentials } from "../fixtures.js";
+import { maggie, maggieCredentials, mozart, testPlaylists, testTracks, concerto} from "../fixtures.js";
 
 suite("Track API tests", () => {
   let user = null;

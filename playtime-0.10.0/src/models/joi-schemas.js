@@ -55,6 +55,6 @@ export const PlaylistArraySpec = Joi.array().items(PlaylistSpecPlus).label("Play
 export const JwtAuth = Joi.object()
   .keys({
     success: Joi.boolean().example("true").required(),
-    token: Joi.string().example("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMWNkNjhlMzU4NTA1NmVmZDg5YmJiYyIsImVtYWlsIjoiaG9tZXJAc2ltcHNvbi5jb20iLCJpYXQiOjE2NDYwNTcyNDQsImV4cCI6MTY0NjA2MDg0NH0.NAxgOOzfjtYDwb2-x0iuiCOhEgCWGmY5-YigQw0DCBo").required(),
+    token: Joi.string().example("eyJhbGciOiJND.g5YmJisIjoiaGYwNTNjAOhE.gCWGmY5-YigQw0DCBo").required(),
   })
   .label("JwtAuth");
