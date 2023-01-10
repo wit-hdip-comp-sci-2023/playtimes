@@ -9,7 +9,7 @@
 
 ## version 0.3.0
 
-- support delete playlist + trackApi
+- support delete playlist + tracks
 - introduce .env for secrets
 - include Joi schema validation for signup form
 - incorporate JSON data stores

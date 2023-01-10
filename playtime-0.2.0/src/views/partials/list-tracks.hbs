@@ -7,18 +7,18 @@
     </tr>
   </thead>
   <tbody>
-    {{#each playlist.trackApi}}
-      <tr>
-        <td>
-          {{title}}
-        </td>
-        <td>
-          {{artist}}
-        </td>
-        <td>
-          {{duration}}
-        </td>
-      </tr>
+    {{#each playlist.tracks}}
+    <tr>
+      <td>
+        {{title}}
+      </td>
+      <td>
+        {{artist}}
+      </td>
+      <td>
+        {{duration}}
+      </td>
+    </tr>
     {{/each}}
   </tbody>
 </table>

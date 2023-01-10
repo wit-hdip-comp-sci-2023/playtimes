@@ -1,6 +1,6 @@
 import { v4 } from "uuid";
-// eslint-disable-next-line import/no-unresolved
-import { JSONFile, Low } from "lowdb";
+import { Low } from "lowdb";
+import { JSONFile } from "lowdb/node";
 
 const db = new Low(new JSONFile("./src/models/json/tracks.json"));
 db.data = { tracks: [] };
@@ -27,17 +27,13 @@ export const trackJsonStore = {
 
   async getTrackById(id) {
     await db.read();
-    let track = db.data.tracks.find((track) => track._id === id);
-    if (track == undefined) {
-      track = null;
-    }
-    return track
+    return db.data.tracks.find((track) => track._id === id);
   },
 
   async deleteTrack(id) {
     await db.read();
     const index = db.data.tracks.findIndex((track) => track._id === id);
-    if (index !== -1) db.data.tracks.splice(index, 1);
+    db.data.tracks.splice(index, 1);
     await db.write();
   },
 

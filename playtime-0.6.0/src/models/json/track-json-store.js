@@ -1,6 +1,6 @@
 import { v4 } from "uuid";
-// eslint-disable-next-line import/no-unresolved
-import { JSONFile, Low } from "lowdb";
+import { Low } from "lowdb";
+import { JSONFile } from "lowdb/node";
 
 const db = new Low(new JSONFile("./src/models/json/tracks.json"));
 db.data = { tracks: [] };
