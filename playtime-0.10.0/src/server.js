@@ -27,22 +27,22 @@ if (result.error) {
 const swaggerOptions = {
   info: {
     title: "Playtime API",
-    version: "0.1"
+    version: "0.1",
   },
   securityDefinitions: {
     jwt: {
       type: "apiKey",
       name: "Authorization",
-      in: "header"
-    }
+      in: "header",
+    },
   },
-  security: [{ jwt: [] }]
+  security: [{ jwt: [] }],
 };
 
 async function init() {
   const server = Hapi.server({
     port: 3000,
-    host: "localhost"
+    host: "localhost",
   });
 
   await server.register(Inert);
@@ -55,37 +55,37 @@ async function init() {
     Vision,
     {
       plugin: HapiSwagger,
-      options: swaggerOptions
-    }
+      options: swaggerOptions,
+    },
   ]);
 
   server.validator(Joi);
 
   server.views({
     engines: {
-      hbs: Handlebars
+      hbs: Handlebars,
     },
     relativeTo: __dirname,
     path: "./views",
     layoutPath: "./views/layouts",
     partialsPath: "./views/partials",
     layout: true,
-    isCached: false
+    isCached: false,
   });
 
   server.auth.strategy("session", "cookie", {
     cookie: {
       name: process.env.cookie_name,
       password: process.env.cookie_password,
-      isSecure: false
+      isSecure: false,
     },
     redirectTo: "/",
-    validateFunc: accountsController.validate
+    validate: accountsController.validate,
   });
   server.auth.strategy("jwt", "jwt", {
     key: process.env.cookie_password,
     validate: validate,
-    verifyOptions: { algorithms: ["HS256"] }
+    verifyOptions: { algorithms: ["HS256"] },
   });
   server.auth.default("session");
 

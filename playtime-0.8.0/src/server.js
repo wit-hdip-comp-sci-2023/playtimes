@@ -69,7 +69,7 @@ async function init() {
       isSecure: false,
     },
     redirectTo: "/",
-    validateFunc: accountsController.validate,
+    validate: accountsController.validate,
   });
   server.auth.default("session");
 

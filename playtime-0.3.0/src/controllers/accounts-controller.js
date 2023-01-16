@@ -20,10 +20,13 @@ export const accountsController = {
       payload: UserSpec,
       options: { abortEarly: false },
       failAction: function (request, h, error) {
-        return h.view("signup-view", {
-          title: "Sign up error",
-          errors: error.details
-        }).takeover().code(400);
+        return h
+          .view("signup-view", {
+            title: "Sign up error",
+            errors: error.details,
+          })
+          .takeover()
+          .code(400);
       },
     },
     handler: async function (request, h) {
@@ -60,8 +63,8 @@ export const accountsController = {
   async validate(request, session) {
     const user = await db.userStore.getUserById(session.id);
     if (!user) {
-      return { valid: false };
+      return { isValid: false };
     }
-    return { valid: true, credentials: user };
+    return { isValid: true, credentials: user };
   },
 };

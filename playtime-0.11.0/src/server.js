@@ -88,7 +88,7 @@ async function init() {
       isSecure: false
     },
     redirectTo: "/",
-    validateFunc: accountsController.validate
+    validate: accountsController.validate
   });
   server.auth.strategy("jwt", "jwt", {
     key: process.env.cookie_password,
