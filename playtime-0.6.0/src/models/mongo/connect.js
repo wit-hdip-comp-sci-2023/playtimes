@@ -4,6 +4,7 @@ import Mongoose from "mongoose";
 export function connectMongo() {
   dotenv.config();
 
+  Mongoose.set("strictQuery", true);
   Mongoose.connect(process.env.db);
   const db = Mongoose.connection;
 

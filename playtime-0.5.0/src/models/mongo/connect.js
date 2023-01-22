@@ -4,7 +4,9 @@ import Mongoose from "mongoose";
 export function connectMongo() {
   dotenv.config();
 
+  Mongoose.set("strictQuery", true);
   Mongoose.connect(process.env.db);
+
   const db = Mongoose.connection;
 
   db.on("error", (err) => {
@@ -15,7 +17,7 @@ export function connectMongo() {
     console.log("database disconnected");
   });
 
-  db.once("open", function () {
+  db.once("open", () => {
     console.log(`database connected to ${this.name} on ${this.host}`);
   });
 }

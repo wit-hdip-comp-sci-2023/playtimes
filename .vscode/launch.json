@@ -7,42 +7,18 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "2",
+      "name": "10",
       "skipFiles": ["<node_internals>/**"],
-      "cwd": "${workspaceFolder}/playtime-0.2.0",
-      "program": "${workspaceFolder}/playtime-0.2.0/src/server.js"
+      "cwd": "${workspaceFolder}/playtime-0.10.0",
+      "program": "${workspaceFolder}/playtime-0.10.0/src/server.js"
     },
     {
       "type": "node",
       "request": "launch",
-      "name": "3",
+      "name": "10Test",
       "skipFiles": ["<node_internals>/**"],
-      "cwd": "${workspaceFolder}/playtime-0.3.0",
-      "program": "${workspaceFolder}/playtime-0.3.0/src/server.js"
+      "cwd": "${workspaceFolder}/playtime-0.10.0",
+      "program": "${workspaceFolder}/playtime-0.10.0/test/server.js"
     },
-    {
-      "type": "node",
-      "request": "launch",
-      "name": "4",
-      "skipFiles": ["<node_internals>/**"],
-      "cwd": "${workspaceFolder}/playtime-0.4.0",
-      "program": "${workspaceFolder}/playtime-0.4.0/src/server.js"
-    },
-    {
-      "type": "node",
-      "request": "launch",
-      "name": "5",
-      "skipFiles": ["<node_internals>/**"],
-      "cwd": "${workspaceFolder}/playtime-0.5.0",
-      "program": "${workspaceFolder}/playtime-0.5.0/src/server.js"
-    },
-    {
-      "type": "node",
-      "request": "launch",
-      "name": "6",
-      "skipFiles": ["<node_internals>/**"],
-      "cwd": "${workspaceFolder}/playtime-0.6.0",
-      "program": "${workspaceFolder}/playtime-0.6.0/src/server.js"
-    }
   ]
 }

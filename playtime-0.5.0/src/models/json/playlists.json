@@ -1,21 +1,9 @@
 {
   "playlists": [
     {
-      "title": "Beethoven Sonatas",
-      "_id": "d0354804-ab37-43a3-ad33-76338bbb6015"
-    },
-    {
-      "title": "Beethoven Concertos",
-      "_id": "aded6fa6-f7d8-4de4-99ae-2f1ec6eedbee"
-    },
-    {
-      "title": "Beethoven Symphonies",
-      "_id": "3de0d412-2b5a-4470-9f01-9a73b263175e"
-    },
-    {
-      "userid": "37756dd1-2e59-4f34-b32c-4cdf646e91ce",
-      "title": "Mozart Concertos",
-      "_id": "096995ae-1a87-44b7-be04-32c7942dd708"
+      "userid": "883bf2c7-a301-4126-9dbe-5d8dace0dde2",
+      "title": "Beethoven Piano Sonatas",
+      "_id": "da614dae-4c25-4c8e-8d35-28ffcbebbea6"
     }
   ]
 }

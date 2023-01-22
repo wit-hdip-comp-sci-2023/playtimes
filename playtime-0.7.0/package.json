@@ -8,7 +8,7 @@
     "start": "node src/server.js",
     "dev": "./node_modules/.bin/nodemon src/server.js",
     "lint": "./node_modules/.bin/eslint . --ext .js",
-    "test": "./node_modules/mocha/bin/_mocha --ui tdd test/**/*.js"
+    "test": "./node_modules/mocha/bin/_mocha --ui tdd test/**/*.js -exit"
   },
   "repository": {
     "type": "git",
@@ -27,25 +27,25 @@
   "dependencies": {
     "@hapi/boom": "^10.0.0",
     "@hapi/cookie": "^12.0.0",
-    "@hapi/hapi": "^21.1.0",
+    "@hapi/hapi": "^21.2.0",
     "@hapi/inert": "^7.0.0",
     "@hapi/vision": "^7.0.0",
     "dotenv": "^16.0.3",
     "handlebars": "^4.7.7",
     "joi": "^17.7.0",
     "lowdb": "^5.0.5",
-    "mongoose": "^6.8.3",
+    "mongoose": "^6.8.4",
     "uuid": "^9.0.0"
   },
   "devDependencies": {
-    "axios": "^1.2.2",
+    "axios": "^1.2.3",
     "chai": "^4.3.7",
-    "eslint": "^8.31.0",
+    "eslint": "^8.32.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^8.6.0",
-    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-import": "^2.27.5",
     "mocha": "^10.2.0",
     "nodemon": "^2.0.20",
-    "prettier": "^2.8.2"
+    "prettier": "^2.8.3"
   }
 }
