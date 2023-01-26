@@ -17,7 +17,8 @@ export function connectMongo() {
     console.log("database disconnected");
   });
 
-  db.once("open", () => {
+  // eslint-disable-next-line func-names
+  db.once("open", function () {
     console.log(`database connected to ${this.name} on ${this.host}`);
   });
 }
