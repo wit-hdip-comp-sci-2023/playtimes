@@ -1,6 +1,8 @@
 # IDE
 .idea
 
+**/db.json
+
 # Logs
 logs
 *.log

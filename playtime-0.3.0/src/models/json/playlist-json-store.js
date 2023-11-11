@@ -1,10 +1,6 @@
 import { v4 } from "uuid";
-import { Low } from "lowdb";
-import { JSONFile } from "lowdb/node";
+import { db } from "./store-utils.js";
 import { trackJsonStore } from "./track-json-store.js";
-
-const db = new Low(new JSONFile("./src/models/json/playlists.json"));
-db.data = { playlists: [] };
 
 export const playlistJsonStore = {
   async getAllPlaylists() {
