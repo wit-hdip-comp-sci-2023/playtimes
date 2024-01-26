@@ -3,7 +3,6 @@ import { db } from "../src/models/db.js";
 import { maggie, testUsers } from "./fixtures.js";
 
 suite("User Model tests", () => {
-
   setup(async () => {
     db.init();
     await db.userStore.deleteAll();
@@ -42,10 +41,20 @@ suite("User Model tests", () => {
     assert.isNull(deletedUser);
   });
 
+  test("get a user - failures", async () => {
+    const noUserWithId = await db.userStore.getUserById("123");
+    assert.isNull(noUserWithId);
+    const noUserWithEmail = await db.userStore.getUserByEmail("no@one.com");
+    assert.isNull(noUserWithEmail);
+  });
+
   test("get a user - bad params", async () => {
-    assert.isNull(await db.userStore.getUserByEmail(""));
-    assert.isNull(await db.userStore.getUserById(""));
-    assert.isNull(await db.userStore.getUserById());
+    let nullUser = await db.userStore.getUserByEmail("");
+    assert.isNull(nullUser);
+    nullUser = await db.userStore.getUserById("");
+    assert.isNull(nullUser);
+    nullUser = await db.userStore.getUserById();
+    assert.isNull(nullUser);
   });
 
   test("delete One User - fail", async () => {
